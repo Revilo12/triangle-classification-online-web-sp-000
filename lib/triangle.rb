@@ -1,3 +1,4 @@
+require 'pry'
 class Triangle
   attr_accessor :s1, :s2, :s3
 
@@ -12,6 +13,7 @@ class Triangle
       begin
         raise TriangleError
       rescue TriangleError => error
+        binding.pry
         puts error.non_zero_zide_message
       end
     elsif @s1 + @s2 < @s3 || @s2 + @s3 < @s1 || @s3 + @s1 < @s2
