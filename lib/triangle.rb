@@ -10,18 +10,9 @@ class Triangle
 
   def kind
     if @s1 <= 0 || @s2 <= 0 || @s3 <= 0
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        binding.pry
-        puts error.non_zero_zide_message
-      end
+      raise TriangleError
     elsif @s1 + @s2 < @s3 || @s2 + @s3 < @s1 || @s3 + @s1 < @s2
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.invalid_side_length
-      end
+      raise TriangleError
     else
       if @s1 == @s2 && @s2 == @s3
         :equilateral
@@ -31,6 +22,28 @@ class Triangle
         :scalene
       end
     end
+    # if @s1 <= 0 || @s2 <= 0 || @s3 <= 0
+    #   begin
+    #     raise TriangleError
+    #   rescue TriangleError => error
+    #     binding.pry
+    #     puts error.non_zero_zide_message
+    #   end
+    # elsif @s1 + @s2 < @s3 || @s2 + @s3 < @s1 || @s3 + @s1 < @s2
+    #   begin
+    #     raise TriangleError
+    #   rescue TriangleError => error
+    #     puts error.invalid_side_length
+    #   end
+    # else
+    #   if @s1 == @s2 && @s2 == @s3
+    #     :equilateral
+    #   elsif @s1 == @s2 || @s2 == @s3 || @s3 == @s1
+    #     :isosceles
+    #   else
+    #     :scalene
+    #   end
+    # end
   end
 
   class TriangleError < StandardError
